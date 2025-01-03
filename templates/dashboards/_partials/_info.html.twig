@@ -1,17 +1,18 @@
 <div id="polling-data"
-     class="container my-4"
-     hx-get="{{ path('app_dashboards_webServices') }}"
+     hx-get="{{ path('app_dashboards_webServices_data') }}"
      hx-trigger="every 5s"
      hx-target="#polling-data"
      hx-swap="outerHTML">
 
-    <div class="row row-equal-height">
+    <div class="row w-100">
         {% for origin, item in dashboardData %}
-            <div class="col-md-3 col-equal-height">
-                <h4 class="text-center">{{ origin }}</h4>
+            <div class="col-md-3 equal-height-col">
+                <h5 class="text-center">{{ origin|capitalize }}</h5>
                 {% for action, count in item %}
-                    <div class="box">{{ action }}</div>
-                    <div class="box">{{ count }}</div>
+                    <div class="content">
+                        <div class="fs-6">{{ action|capitalize }}</div>
+                        <div class="fs-1">{{ count }}</div>
+                    </div>
                 {% endfor %}
             </div>
         {% endfor %}

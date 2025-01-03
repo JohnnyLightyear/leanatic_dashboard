@@ -1,19 +1,27 @@
-.row-equal-height {
-    display: flex;
-    flex-wrap: wrap;
+#dashboard-wrapper {
+    font-size: 40px;
 }
-.col-equal-height {
+
+/* Ensure the container takes full viewport height */
+.full-height {
+    min-height: 100vh; /* Take up full viewport height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Flex utility to ensure all columns in the same row have equal height */
+.equal-height-col {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    padding: 10px;
+    justify-content: space-between;
 }
-.box {
-    flex-grow: 1;
-    padding: 20px;
+
+/* Optional: style for the content inside the columns */
+.content {
     background-color: #f8f9fa;
+    padding: 3rem;
+    margin: 1rem;
     border: 1px solid #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 }

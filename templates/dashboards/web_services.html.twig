@@ -4,6 +4,13 @@
 
 {% block body %}
 
-    {% include 'dashboards/_partials/_info.html.twig' %}
+    <div id="dashboard-wrapper" class="container-fluid full-height">
+
+        {% if dashboardData is empty %}
+            <div class="col text-center">Argh, there be no data here. 🏴‍☠️</div>
+        {% else %}
+            {% include 'dashboards/_partials/_info.html.twig' %}
+        {% endif %}
+    </div>
 
 {% endblock %}
