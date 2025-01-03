@@ -1,0 +1,19 @@
+.row-equal-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-equal-height {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 10px;
+}
+.box {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
