@@ -1,0 +1,5 @@
+framework:
+  webhook:
+    routing:
+      ws_dashboard:
+        service: App\Webhook\WsDashboardRequestParser
