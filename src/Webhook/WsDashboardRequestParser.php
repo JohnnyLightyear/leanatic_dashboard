@@ -43,8 +43,8 @@ final class WsDashboardRequestParser extends AbstractRequestParser
     {
         return new ChainRequestMatcher([
             new IsJsonRequestMatcher(),
-            new IpsRequestMatcher(['127.0.0.1']),
-            new HostRequestMatcher('.local'),
+            // new IpsRequestMatcher(['127.0.0.1']),
+            // new HostRequestMatcher('.local'),
             new MethodRequestMatcher('POST'),
             new QueryParameterRequestMatcher(['action'])
         ]);
@@ -63,7 +63,7 @@ final class WsDashboardRequestParser extends AbstractRequestParser
         // }
 
         // Validate action
-        // TODO: Ideally, refactor into separate endpoints for each action
+        // TODO: Ideally, refactor into separate endpoints for each action, or create custom Events by action, ie RegistrationEvent and VisitEvent
         // TODO: For now, define actions as enum rather than constants
         if (!in_array($request->get('action'), self::ACTIONS)) {
             throw new RejectWebhookException(Response::HTTP_BAD_REQUEST, 'Request parameters contain invalid values.');
@@ -81,8 +81,6 @@ final class WsDashboardRequestParser extends AbstractRequestParser
 
         // Parse the request payload and return a RemoteEvent object.
         $payload = $request->getPayload();
-
-        // TODO: Custom Event by action, ie RegistrationEvent and VisitEvent?
 
         return new RemoteEvent(
             $request->get('action'),
